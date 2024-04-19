@@ -1,0 +1,101 @@
+<b>Reactive Form Example</b> &nbsp;
+<br> <br>
+<form [formGroup]="loginForm"  >
+
+    <label >First Name</label> &nbsp;
+    <input type="text" name="username" formControlName="firstName" >
+    <br> <br>
+
+    <label >last Name</label> &nbsp;
+    <input type="text" name="lastname" formControlName="lastName" >
+    <br> <br>
+
+    <label >Email</label> &nbsp;
+    <input type="text" name="email" formControlName="email" >
+    <br> <br>
+
+    <label >Phone</label> &nbsp;
+    <input type="number" name="phone" formControlName="phone" >
+    <br> <br>
+
+    <label >Company</label> &nbsp;
+    <input type="text" name="company" formControlName="company" >
+    <br> <br>
+
+    <label> Gender </label> <br>
+        <input type="radio" formControlName="gender" value="male"> Male <br>
+        <input type="radio" formControlName="gender" value="female"> Female <br>
+    <br><br>
+    <label for="">Date</label>&nbsp;
+    <input type="date" name="date" formControlName="date" >
+    <br> <br>
+
+    <label >Password</label> &nbsp;
+    <input type="password" name="password" formControlName="password" >
+    <br> <br>
+    <label >Confirm Password</label> &nbsp;
+    <input type="password" name="password" formControlName="password" >
+    <br> <br>
+
+    <button (click)="submit()"> Register </button> &nbsp;
+    <button (click)="submit()"> Cancel </button>
+
+</form>
+
+
+<table>
+        <div>
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    Email 
+                </td>
+                <td>
+                    Phone 
+                </td>
+                <td>
+                    Company 
+                </td>
+                <td>
+                    DOB
+                </td>
+            </tr>
+    
+        </div>
+        
+    <div *ngFor="let data of details;index as i">
+        <tr>
+            <td>
+                {{data.firstName}} 
+            </td>
+            <td>
+                {{data.lastName}} 
+            </td>
+            <td>
+                {{data.email}} 
+            </td>
+            <td>
+                {{data.phone}} 
+            </td>
+            <td>
+                {{data.company}} 
+            </td>
+            <td>
+                {{data.date}} 
+            </td>
+            <td>
+                <button (click)="edit(data)"> edit</button> &nbsp;
+                <button (click)="update()"> update</button>
+            </td>
+            <td>
+                <button (click)="delete(data)"> delete</button>
+            </td>
+        </tr>
+    </div>
+
+</table>
